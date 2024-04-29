@@ -3,7 +3,7 @@
 shell.c作为主程序循环接收用户输入命令，根据命令调用对应可执行文件。
 ## 构建运行
 ```
-git clone https://github.com/mendge/shell-demo
+git clone https://github.com/mendge/shell-demo.git
 cd shell-demo
 make
 ```
