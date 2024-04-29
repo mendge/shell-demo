@@ -1,53 +1,30 @@
-此代码参考 [MyShell/myshell at main · DreamboatW/MyShell (github.com)](https://github.com/DreamboatW/MyShell/tree/main/myshell)
-
+## 实现思路：
+针对每个功能各自写一个xx.c文件，编译产生可执行文件。
+shell.c作为主程序不断接收用户输入命令，根据命令调用各自功能的可执行文件。
+## 构建运行
+```
+git clone xx
+cd xx
+make build
+```
+## 注意
 我的代码中有大量注释，特别是ls.c，时间不是很充裕没有完全测试所以功能，但是可以保证基本正确，如果遇到有错误请指正并自行更改。
+## 命令实现
+| 命令| 解释|
+|----|----|
+|whoami|我是谁？？|
+|clear|清屏|
+|pwd|打印工作路径|
+|cd dir|跳转工作目录到指定目录（相对路径觉得轮都行）| 
+|cp [src] [dest]|复制文件|
+|head \<-n x> filename|打印文件前x行,默认5行|
+|echo str1 str2 … strn|n=1，可以去除单双引号；n>1，各str中间的多个空格只打印一个|
+|cat [file]|打印文件|
+|cat [src] [> \| >>] [dest]|重定向打印：>覆盖式，>>追加式|
+|mv [file1] [file2]|移动文件|
+|rmdir dir|创建目录|
+|rm [file/dir]|移除文件或者目录|
+|ls -[a/l/al/R] \<dir>|列出指定目录下的文件，-a表示所有（包括"."开头的文件）；-l表示列表形式展示；-R表示递归打印子目录的文件|
 
-思路：
 
-针对每个功能各自写一个.c文件实现，最后实现shell.c作为主程序创建子进程调用各个功能.c文件编译出的.out文件。实现功能如下：
-
-###### (1)	head [-n line] filename
-
-打印文件前line行
-line默认为5； 
-
-###### (2)	cd destdir
-
-destdir可是绝对或者相对路径
-
-###### (3)	clear
-
-###### (4)	cp srcfile destfile
-
-###### (5)	echo str1 str2 … strn
-
-n=1，可以去除单双引号
-n>1，各str中间的多个空格只打印一个
-
-###### (6)	cat filename
-
-打印文件名
-
-###### cat file1 >/>> file2
-
-File1打印到file2          >：覆盖上打印  >>：追加式打印
-
-###### (7)	mv file1 file2
-
-file2可带相对路径和绝对路径
-
-###### (8)	pwd
-
-###### (9)	rmdir dir
-
-###### (10)	rm file/dir
-
-###### (11)	whoami
-
-获取用户名
-
-###### (12)	ls [-a/-l/-al/-R] dir
-
--a/-al  输出文件名，帶. 和..
--l/-al  输出文件基本信息，不帶. 和..
--R 遇到目录则要输出其子目录的文件名
+此代码参考 [MyShell/myshell at main · DreamboatW/MyShell (github.com)](https://github.com/DreamboatW/MyShell/tree/main/myshell)
